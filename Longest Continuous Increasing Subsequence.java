@@ -50,31 +50,27 @@ public int findLengthOfLCIS(int[] nums) {
 
 
 
-//上面代码空间占用太多，删掉sum数组，直接在nums操作
+//上面代码空间占用太多，删掉数组sum和max_num，直接在nums操作
 
 public static int findLengthOfLCIS(int[] nums) {
-    //构造数组sum，用于存放数组nums的差值
-    int []max_num = new int[nums.length];
-    for (int i = 1; i < nums.length; i++) {
-        nums[i-1] = nums[i]  - nums[i-1];
-    }
-    
-    int len = 0, j = 0;
-    for (int i = 0; i < nums.length-1; i++) {
-        if(nums[i] > 0) 
-            len++;
-        else {
-            max_num[++j] = len;
-            len = 0;
-        }       
-    }
-    
-    //遍历找出最大子序列长度
-    for (int i = 0; i < max_num.length; i++) {
-        len = Math.max(max_num[i],len);
-    }
-    if(nums.length <= 0)
-        len = -1;
-        
-    return len+1;
+ //操作数组nums，将相邻的差值存储在i-1
+     for (int i = 1; i < nums.length; i++) {
+      nums[i-1] = nums[i]  - nums[i-1];
+   }
+     
+     int max_len=0,len = 0;
+     for (int i = 0; i < nums.length-1; i++) {
+      if(nums[i] > 0) 
+         len++;
+      else {
+         max_len = Math.max(max_len, len);
+         len = 0;
+      }     
+   }
+   
+     max_len = Math.max(max_len, len);
+     if(nums.length <= 0)
+      max_len = -1;
+      
+     return max_len+1;
 }
