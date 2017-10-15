@@ -21,23 +21,23 @@ class Solution {
         ListNode list = head;//此时list对象相当于head对象的引用
         while(list != null && list.next != null){
             if(list.next.val == list.val)
-                list.next =list.next.next;
+                list.next =list.next.next;//相应的会改变head
             else
-                list = list.next;
+                list = list.next;   //不会改变head,但会改变list，用一次减少一个元素
         }
-        return head; //list记录的是head的一个地址,所以return list 是错误的
+        return head; //所以return list 是错误的
     }
 }
 
 /*
 ArrayList<Integer> arrayList =new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            arrayList.add(i);
-        }
-        
-        ArrayList<Integer> bArrayList =arrayList;
-        System.out.println(bArrayList);
-        bArrayList.add(5);
-        System.out.println(arrayList);
-        System.out.println(bArrayList);
+    for (int i = 0; i < 5; i++) {
+        arrayList.add(i);
+    }
+    
+    ArrayList<Integer> bArrayList =arrayList;
+    System.out.println(bArrayList);
+    bArrayList.add(5);
+    System.out.println(arrayList);
+    System.out.println(bArrayList);
 */
