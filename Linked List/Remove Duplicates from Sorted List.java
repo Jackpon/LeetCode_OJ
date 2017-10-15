@@ -18,7 +18,11 @@ Given 1->1->2->3->3, return 1->2->3.
  */
 class Solution {
     public ListNode deleteDuplicates(ListNode head) {
-        ListNode list = head;//此时list对象相当于head对象的引用
+        ListNode list = head;
+        /*
+        此时list对象相当于head对象的引用，所以改变list指针会改变head，
+        因为它们指针是同一个，而改变val则不会改变head
+        */
         while(list != null && list.next != null){
             if(list.next.val == list.val)
                 list.next =list.next.next;//相应的会改变head
