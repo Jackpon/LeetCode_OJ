@@ -18,14 +18,14 @@ Given 1->1->2->3->3, return 1->2->3.
  */
 class Solution {
     public ListNode deleteDuplicates(ListNode head) {
-        ListNode list = head;//?内部实现过程??
+        ListNode list = head;//此时list对象相当于head对象的引用
         while(list != null && list.next != null){
             if(list.next.val == list.val)
                 list.next =list.next.next;
             else
                 list = list.next;
         }
-        return head;
+        return head; //list记录的是head的一个地址,所以return list 是错误的
     }
 }
 

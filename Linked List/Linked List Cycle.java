@@ -23,7 +23,7 @@ public class Solution {
 	    		 return true;
 	    	 else 
 	    		 set.add(head);
-	    	 head = head.next;
+	    	 head = head.next; //需要注意是，此操作会改变head里的元素?
 	     }
 	     return false;
 	}
