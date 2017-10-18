@@ -67,3 +67,35 @@ public int calPoints(String[] ops) {
 		
     return sums;
 }
+
+
+//利用栈,上面的思路其实抽象出来就是栈
+public int calPoints(String[] ops) {
+	LinkedList<Integer> stack = new LinkedList<>();
+	int a,b,sum=0;
+	for (int i = 0; i < ops.length; i++) {
+		if (ops[i].equals("+")) {
+			a = stack.pop();
+			b = stack.pop();
+			stack.push(b);
+			stack.push(a);
+			stack.push(a+b);
+		}
+		else if (ops[i].equals("D")) {
+			a = stack.pop();
+			stack.push(a);
+			stack.push(2*a);
+		}
+		else if (ops[i].equals("C")) {
+			stack.pop();
+		}
+		else 
+			stack.push(Integer.parseInt(ops[i]));
+		
+	}
+	while(!stack.isEmpty())
+		sum += stack.pop();
+	return sum;
+}
+
+//可以看出，效率没有数组高，思路也差不多，当然栈有个好处就是不用处理下标
