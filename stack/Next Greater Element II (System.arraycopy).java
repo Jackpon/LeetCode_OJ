@@ -152,7 +152,7 @@ public static int[] nextGreaterElements(int[] nums) {
     for (int i = 2*nums.length-1; i >=0; i--) {
          while(!stack.isEmpty() && nums[i%nums.length] >= stack.peek())
              stack.pop();
-         a[i%nums.length] = stack.isEmpty() ? -1:stack.peek();
+         a[i%nums.length]=  stack.isEmpty()? -1:stack.peek();
          stack.push(nums[i%nums.length]);
     }
     
