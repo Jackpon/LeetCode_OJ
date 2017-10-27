@@ -20,3 +20,8 @@ public int addDigits(int num) {
 		return value;
 	return	addDigits(value);
 }
+
+//数学取余
+public int addDigits(int num) {
+       return num==0?0:(num%9==0?9:(num%9));
+    }
