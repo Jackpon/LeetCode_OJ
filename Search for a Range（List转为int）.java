@@ -40,4 +40,8 @@ LinkedList<Integer> linkedList = new LinkedList<>();
 		int []a = new int[linkedList.size()];
 		for (int i = 0; i < linkedList.size(); i++) 
 			a[i] = linkedList.get(i);
+
+
+Integer []a = new Integer[set.size()];
+        set.toArray(a);
 */
