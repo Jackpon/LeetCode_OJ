@@ -14,6 +14,13 @@ Output: True
 
 Explanation: You could delete the character 'c'.
 */
+/*
+思路：
+	利用二分搜索，比较两端值，如果值不相等，则if(sum[i+1]==sum[j]&&sum[i+2]==sum[j-1])
+	真时：右边的值原地踏步
+	假时：左边的值原地踏步
+	直至count大于1
+*/
 
 public static boolean validPalindrome(String s) {
 	boolean status=true;
