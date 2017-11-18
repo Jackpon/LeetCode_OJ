@@ -57,3 +57,10 @@ public boolean detectCapitalUse(String word) {
     if (word.substring(1).toLowerCase().equals(word.substring(1))) return true;
     return false;
 }
+/*
+substring
+返回一个新字符串，它是此字符串的一个子字符串。
+该子字符串从指定的 beginIndex 处开始，直到索引 endIndex - 1 处的字符。
+
+"hamburger".substring(4, 8) returns "urge"
+*/
