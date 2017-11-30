@@ -23,27 +23,27 @@ Both numbers with value 2 are both considered as second maximum.
 
 public int thirdMax(int[] nums) {
         Arrays.sort(nums);
-	        int count=0,value=nums[0];
-	        
-	        if (nums.length<3) {
-	        	
-				for (int i = 0; i < nums.length; i++) 
-					value=Math.max(value, nums[i]);
-				
-			}else {
-				
-				for (int i = nums.length-1; i > 0; i--) {
-					if (nums[i]>nums[i-1]) {
-						count++;
-						if (count==2) {
-							value=nums[i-1];
-							break;
-						} 
-					}
+        int count=0,value=nums[0];
+        
+        if (nums.length<3) {
+        	
+			for (int i = 0; i < nums.length; i++) 
+				value=Math.max(value, nums[i]);
+			
+		}else {
+			
+			for (int i = nums.length-1; i > 0; i--) {
+				if (nums[i]>nums[i-1]) {
+					count++;
+					if (count==2) {
+						value=nums[i-1];
+						break;
+					} 
 				}
-				if(count<2)
-					value=nums[nums.length-1];
 			}
-	        
-	        return value;
+			if(count<2)
+				value=nums[nums.length-1];
+		}
+        
+        return value;
     }

@@ -1,7 +1,8 @@
 ﻿/*
 532. K-diff Pairs in an Array
 
-Given an array of integers and an integer k, you need to find the number of unique k-diff pairs in the array. Here a k-diff pair is defined as an integer pair (i, j), where i and j are both numbers in the array and their absolute difference is k.
+Given an array of integers and an integer k, you need to find the number of unique k-diff pairs in the array.
+Here a k-diff pair is defined as an integer pair (i, j), where i and j are both numbers in the array and their absolute difference is k.
 
 Example 1:
 Input: [3, 1, 4, 1, 5], k = 2
@@ -60,4 +61,44 @@ public int findPairs(int[] nums, int k) {
 	
 	
 	return pairs;
+}
+//k==0时的不同解法
+class Solution {
+    public int findPairs(int[] nums, int k) {
+    	Arrays.sort(nums);
+		int pairs=0;
+		
+		if(nums.length <2)
+            return 0;
+		if (k==0) {
+	        int i=0,count=0,sta = nums[0];
+	        if(nums[1]==nums[0])
+	        	count = 1;
+			while(i < nums.length-1){
+	            if(nums[i] == nums[i+1] && nums[i] != sta){
+                    sta=nums[i];
+	                count++;
+	                i++;
+	            }
+	            i++;
+	        }
+			
+	        pairs = count;
+		}else {
+			for (int i = 0; i < nums.length-1; i++) {
+				if(nums[i]==nums[i+1]) 
+					continue;
+					
+				for (int j = i+1; j < nums.length; j++) 
+					if (Math.abs(nums[i] - nums[j]) == k) {
+						++pairs;
+						break;
+					}
+				
+			}
+		}
+		
+		
+		return pairs;
+}
 }

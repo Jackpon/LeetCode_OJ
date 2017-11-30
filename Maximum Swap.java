@@ -26,20 +26,17 @@ Intuition:
 
 public int maximumSwap(int num) {
     char[] A = Integer.toString(num).toCharArray();
-	// char[] ans = Arrays.copyOf(A, A.length); 
-	 
 	 int index=0;
 	 char max_num ='0',value;
-	 //9973
-	 for (int i = 0; i < A.length-1; i++) {		//i<A.length-1
+	 for (int i = 0; i < A.length-1; i++) {	//i<A.length-1
 		 //找出A[i]后面的最大值
 		 for (int j = i+1; j < A.length; j++) 
 			 max_num = (char) Math.max(max_num, A[j]);
-		 //找出最大值小标	 	
+		 //找出最大值下标	 	
 		 for (int j2 = i+1; j2 < A.length; j2++) 
 			 if(A[j2] == max_num)
 				 index = j2;
-		 //上面的最大值和小标都已经找到，现在只需比较替换
+		 //上面的最大值和下标都已经找到，现在只需比较替换
 		 if(max_num > A[i] && A[i] != max_num ) {
 			 value = A[i];
 			 A[i] = max_num;

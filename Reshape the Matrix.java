@@ -38,7 +38,7 @@ The given r and c are all positive.
 class Solution {
     public int[][] matrixReshape(int[][] nums, int r, int c) {
         int [][] snums = new int [r][c];
-		 int [] a = new int [nums.length*nums[0].length];
+		int [] a = new int [nums.length*nums[0].length];//代表行和列
 		 //将二维数组nums[][]按行数转换为一维数组a[]
 		 for (int i = 0; i < nums.length; i++) {
 			for (int j = 0; j < nums[0].length; j++) {

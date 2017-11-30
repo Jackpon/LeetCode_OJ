@@ -2,7 +2,8 @@
 561. Array Partition I
 
 Given an array of 2n integers, your task is to group these integers into n pairs of integer, 
-say (a1, b1), (a2, b2), ..., (an, bn) which makes sum of min(ai, bi) for all i from 1 to n as large as possible.
+say (a1, b1), (a2, b2), ..., (an, bn) which makes sum of min(ai, bi) for all i from 1 to n 
+as large as possible.
 
 Example 1:
 Input: [1,4,3,2]
@@ -19,10 +20,10 @@ All the integers in the array will be in the range of [-10000, 10000].
 class Solution {
     public int arrayPairSum(int[] nums) {
         int sum=0;
-	        Arrays.sort(nums);
-	        for (int i = 1; i < nums.length; i+=2) {
-				sum += Math.min(nums[i],nums[i-1]);
-			}
-	        return sum;
+        Arrays.sort(nums);
+        for (int i = 1; i < nums.length; i+=2) {
+			sum += Math.min(nums[i],nums[i-1]);
+		}
+        return sum;
     }
 }

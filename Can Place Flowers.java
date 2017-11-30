@@ -26,34 +26,34 @@ n is a non-negative integer which won't exceed the input array size.
 
 class Solution {
     public boolean canPlaceFlowers(int[] flowerbed, int n) {
-     int count=0,len=flowerbed.length;
+        int count=0,len=flowerbed.length;
 	 //处理len<=3 and 首尾两端 的情况
-        	if (len==1 && flowerbed[0]==0) {
-				return 1>=n;
-			}
-        	if (len==1 && flowerbed[0]==1) {
-				return 0>=n;
-			}
-        	
-        	if (flowerbed[0]==0 && flowerbed[1]==0) 
-        	{	
-        		count++;
-        		flowerbed[0]=1;
-        	}
-        	if (flowerbed[len-1]==0 && flowerbed[len-2]==0) 
-        	{	
-        		count++;
-        		flowerbed[len-1]=1;
-        	}
+    	if (len==1 && flowerbed[0]==0) {
+			return 1>=n;
+		}
+    	if (len==1 && flowerbed[0]==1) {
+			return 0>=n;
+		}
+    	
+    	if (flowerbed[0]==0 && flowerbed[1]==0) 
+    	{	
+    		count++;
+    		flowerbed[0]=1;
+    	}
+    	if (flowerbed[len-1]==0 && flowerbed[len-2]==0) 
+    	{	
+    		count++;
+    		flowerbed[len-1]=1;
+    	}
 	//len>=3 的情况
-        	for (int i =1; i < len-1 && len>=3; i++) {
-				if(flowerbed[i-1]==0 && flowerbed[i+1]==0 && flowerbed[i]==0)
-				{	
-					flowerbed[i]=1;	
-					count++;
-				}
-        	}
-        	
-        	return count>=n;
+    	for (int i =1; i < len-1 && len>=3; i++) {
+			if(flowerbed[i-1]==0 && flowerbed[i+1]==0 && flowerbed[i]==0)
+			{	
+				flowerbed[i]=1;	
+				count++;
+			}
+    	}
+    	
+    return count>=n;
     }
 }
